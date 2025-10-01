@@ -6,87 +6,201 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reserva Habitación</title>
 </head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    table {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    td {
+        padding: 20px;
+    }
+
+    h1 {
+        background-color: rgb(49, 126, 204);
+        padding: 10px 0;
+        margin-bottom: 20px;
+    }
+
+    .section-title {
+        background-color: lightgray;
+        padding: 0 20px;
+    }
+
+    .form-boton {
+        margin: 5px 20px;
+        padding: 20px 40px;
+        font-size: 16px;
+        border-radius: 12px;
+        cursor: pointer;
+    }
+
+    .boton-primario {
+        background-color: rgb(49, 126, 204);
+        border: none;
+        color: white;
+    }
+
+    .boton-primario:hover {
+        background-color: rgb(28, 90, 146);
+    }
+
+    .boton-secundario {
+        background-color: lightgray;
+        border: none;
+    }
+
+    .boton-secundario:hover {
+        background-color: gray;
+        color: white;
+    }
+
+    input,
+    select {
+        font-size: 16px;
+    }
+</style>
 
 <body>
     <form action="">
         <table>
             <thead>
-                <h1>Reserva Habitación</h1>
+                <th colspan="5">
+                    <h1>Reserva Habitación</h1>
+                </th>
             </thead>
             <tbody>
                 <tr>
-                    <h2>Datos Personales</h2>
+                    <td colspan="5" class="section-title">
+                        <h3>Datos Personales:</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="inputNombre">Nombre(s): *</label><br>
+                        <input type="text" name="inputNombre" id="inputNombre" placeholder="Ej. Juan" required>
+                    </td>
+                    <td>
+                        <label for="inputApellidoP">Apellido paterno: *</label><br>
+                        <input type="text" name="inputApellidoP" id="inputApellidoP" placeholder="Ej. Pérez" required>
+                    </td>
+                    <td>
+                        <label for="inputApellidoM">Apellido materno:</label><br>
+                        <input type="text" name="inputApellidoM" id="inputApellidoP" placeholder="Ej. Rodríguez">
+                    </td>
+                    <td>
+                        <label for="inputRFC">RFC:</label><br>
+                        <input type="text" name="inputRFC" id="inputRFC" placeholder="Ingresa tu RFC">
+                    </td>
+                    <td>
+                        <label for="inputTelefono">Teléfono: *</label><br>
+                        <input type="tel" name="inputTelefono" id="inputTelefono" placeholder="Ingresa tu teléfono"
+                            required>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="5" class="section-title">
+                        <h3>Datos de Dirección:</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="inputCalle">Calle: *</label><br>
+                        <input type="text" name="inputCalle" id="inputCalle" placeholder="Av. Universidad" required>
+                    </td>
+                    <td>
+                        <label for="inputColonia">Colonia: *</label><br>
+                        <input type="text" name="inputColonia" id="inputColonia" placeholder="Palo Escrito" required>
+                    </td>
+                    <td>
+                        <label for="inputNumero">Número: *</label><br>
+                        <input type="number" name="inputNumero" id="inputNumero" placeholder="7" required>
+                    </td>
+                    <td>
+                        <label for="inputCP">Código postal: *</label><br>
+                        <input type="text" name="inputCP" id="inputCP" placeholder="62589" required>
+                    </td>
+                    <td>
+                        <label for="selectEstado">Estado: *</label><br>
+                        <select name="selectEstado" id="selectEstado" required>
+                            <option value="">Selecciona un estado...</option>
+                            <option value="Morelos">Morelos</option>
+                            <option value="CDMX">CDMX</option>
+                            <option value="Jalisco">Jalisco</option>
+                            <option value="Nuevo León">Nuevo León</option>
+                            <option value="Yucatán">Yucatán</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="5" class="section-title">
+                        <h3>Datos de reservación:</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="inputPersonas">Cantidad de personas: *</label><br>
+                        <input type="number" name="inputPersonas" id="inputPersonas" placeholder="4" required>
+                    </td>
+                    <td>
+                        <label for="inputFechaEntrada">Fecha de entrada: *</label><br>
+                        <input type="date" name="inputFechaEntrada" id="inputFechaEntrada" required>
+                    </td>
                     <td>
                         <p>
-                            <label for="inputNombre">Nombre(s):</label>
-                            <input type="text" name="inputNombre" id="inputNombre" placeholder="Ej. Juan">
+                            <label for="inputFechaSalida">Fecha de salida: *</label><br>
+                            <input type="date" name="inputFechaSalida" id="inputFechaSalida" required>
                         </p>
                     </td>
                     <td>
                         <p>
-                            <label for="inputApellidoP">Apellido paterno:</label>
-                            <input type="text" name="inputApellidoP" id="inputApellidoP" placeholder="Ej. Pérez">
+                            <label for="selectTipoHabitacion">Tipo de habitación: *</label><br>
+                            <select name="selectTipoHabitacion" id="selectTipoHabitacion" required>
+                                <option value="">Selecciona un tipo...</option>
+                                <option value="Simple">Simple</option>
+                                <option value="Duplex">Dúplex</option>
+                                <option value="Premium">Premium</option>
+                            </select>
                         </p>
                     </td>
-                    <td>
+                    <td colspan="2">
                         <p>
-                            <label for="inputApellidoM">Apellido materno:</label>
-                            <input type="text" name="inputApellidoM" id="inputApellidoP" placeholder="Ej. Rodríguez">
-                        </p>
-                    </td>
-                    <td>
-                        <p>
-                            <label for="inputIdioma">Lengua materna:</label>
-                            <select name="inputIdioma" id="inputIdioma">
-                                <option value="">Selecciona un idioma...</option>
-                                <option value="Español">Español</option>
-                                <option value="Inglés">Inglés</option>
-                                <option value="Francés">Francés</option>
-                                <option value="Japonés">Japonés</option>
+                            <label for="inputTipoCama">Tipo de cama: *</label><br>
+                            <select name="inputTipoCama" id="inputTipoCama" required>
+                                <option value="">Selecciona un tipo...</option>
+                                <option value="Matrimonial">Matrimonial</option>
+                                <option value="Queen">Queen</option>
+                                <option value="King">King</option>
                             </select>
                         </p>
                     </td>
                 </tr>
                 <tr>
-                    <h2>Dirección</h2>
-                    <td>
-                        <p>
-                            <label for="inputCalle">Calle:</label>
-                            <input type="text" name="inputCalle" id="inputCalle" placeholder="Av. Universidad">
-                        </p>
-                    </td>
-                    <td>
-                        <p>
-                            <label for="inputColonia">Colonia:</label>
-                            <input type="text" name="inputColonia" id="inputColonia" placeholder="Palo Escrito">
-                        </p>
-                    </td>
-                    <td>
-                        <p>
-                            <label for="inputNumero">Número:</label>
-                            <input type="number" name="inputNumero" id="inputNumero" placeholder="7">
-                        </p>
+                    <td colspan="6" class="section-title">
+                        <h3>Información Adicional:</h3>
                     </td>
                 </tr>
                 <tr>
-                    <h2>Información adicional</h2>
                     <td>
-                        <p>
-                            <label for="inputPersonas">Cantidad de personas:</label>
-                            <input type="number" name="inputPersonas" id="inputPersonas" placeholder="4">
-                        </p>
+                        <label for="inputIdioma">Lengua materna:</label><br>
+                        <select name="inputIdioma" id="inputIdioma">
+                            <option value="">Selecciona un idioma...</option>
+                            <option value="Español">Español</option>
+                            <option value="Inglés">Inglés</option>
+                            <option value="Francés">Francés</option>
+                            <option value="Japonés">Japonés</option>
+                        </select>
                     </td>
-                    <td>
-                        <p>
-                            <label for="inputRFC">RFC:</label>
-                            <input type="text" name="inputRFC" id="inputRFC" placeholder="Ingresa tu RFC">
-                        </p>
-                    </td>
-                    <td>
-                        <p>
-                            <label for="inputTelefono">Teléfono de contacto:</label>
-                            <input type="text" name="inputTelefono" id="inputTelefono" placeholder="7778074051">
-                        </p>
+                </tr>
+                <tr>
+                    <td colspan="5" style="text-align: end;">
+                        <input type="reset" value="Limpiar" class="form-boton boton-secundario">
+                        <input type="submit" value="Enviar" class="form-boton boton-primario">
                     </td>
                 </tr>
             </tbody>
